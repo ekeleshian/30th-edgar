@@ -4,13 +4,13 @@ const invalidInput = document.getElementsByClassName("invalid-input")[0];
 const loaderContainer = document.getElementsByClassName("loader-container")[0];
 const stagedWords = document.getElementsByClassName("keywords-input")[0];
 const stagedWordCount = document.getElementsByClassName("word-count-input")[0];
-
+const responseContainer = document.getElementsByClassName("response")[0];
+const responseText = document.getElementsByClassName("response-text")[0];
 
 async function sendResultsToServer(stagedWords, stagedWordCount){
     try{
         const words = stagedWords.value.trim();
         const wCount = stagedWordCount.value.trim();
-        console.log({wCount})
         const revisedWords = words.split(' ').join('_');
         const response = await fetch(`http://localhost:5005/classify/${revisedWords}/${wCount}`);
         return await response.text();
@@ -21,41 +21,56 @@ async function sendResultsToServer(stagedWords, stagedWordCount){
 
 }
 
+function addText(response) {
+    responseText.innerText = response;
+    responseContainer.style.display = 'block';
+}
+
+
 stagedWords.addEventListener("keydown", async e => {
     invalidInput.style.display = 'none';
+    responseContainer.style.display = 'none';
     if (stagedWords.value.length > 0 && stagedWordCount.value.length > 0){
         continueButton.setAttribute("style", "cursor:pointer")
+        if (e.code === "Enter") {
+            const res = await sendResultsToServer(stagedWords, stagedWordCount);
+            addText(res)
+        }
     } else {
+        continueButton.setAttribute("style", "cursor:no-drop")
         return;
-    }
-    if (e.code === "Enter"){
-        const res = await sendResultsToServer(stagedWords, stagedWordCount);
-        console.log({res})
     }
 });
 
 stagedWordCount.addEventListener("keydown", async e => {
     invalidInput.style.display = 'none';
+    responseContainer.style.display = 'none';
+
     if (stagedWords.value.length > 0 && stagedWordCount.value.length > 0){
         continueButton.setAttribute("style", "cursor:pointer")
         if (e.code === "Enter"){
             const res = await sendResultsToServer(stagedWords, stagedWordCount);
-            console.log({res})
+            addText(res)
         }
     } else {
+        continueButton.setAttribute("style", "cursor:no-drop")
         return;
     }
 });
 
 
 continueButton.addEventListener("click", async e => {
+    invalidInput.style.display = 'none';
+    responseContainer.style.display = 'none';
     if (stagedWords.value.length > 0 && stagedWordCount.value.length > 0) {
         e.preventDefault();
         const res = await sendResultsToServer(stagedWords, stagedWordCount);
-        console.log({res})
+        addText(res)
     }
     else {
-        invalidInput.style.display = "block"
+        continueButton.setAttribute("style", "cursor:no-drop")
+        invalidInput.style.display = "block";
+        return;
     }
 });
 

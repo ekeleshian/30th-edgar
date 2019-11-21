@@ -17,7 +17,12 @@
             width: var(--extensionWidth);
             height: var(--extensionHeight);
         }
-
+        @font-face {
+         font-family: edgarLizFont;
+         font-style: normal;
+         font-weight: 700;
+         src: url("chrome-extension://ecfploafgighhambfdjjdepoahghcohj/HomemadeApple-Regular.ttf");
+        }
 
         .loader-container {
             display: flex;
@@ -66,25 +71,10 @@
             transform: rotate(360deg);
           }
         }
-        .foot-note-container {
-            border-top: 1px solid #e6e6e6;
-            padding: .75rem .5rem;
-        }
-        .foot-note {
-            font-size: 12px;
-            color: #000000;
-            opacity: 0.2;
-            text-align: center;
-        }
         .first-page-container {
-            background-image: linear-gradient(-180deg, #233a52 0%, #0a1726 100%);
+            /*background-image: linear-gradient(-180deg, #233a52 0%, #0a1726 100%);*/
             height: 800px;
         }
-
-        /*.first-page-container {*/
-        /*    background-image: url("chrome-extension://ecfploafgighhambfdjjdepoahghcohj/alphabet_300x750.jpg");*/
-        /*    height: 800px;*/
-        /*}*/
 
         .input-first-page-description {
             padding-top: 30px;
@@ -112,20 +102,13 @@
         .continueButton:focus{
             cursor: wait;
         }
-        .second-page-container {
-            border-radius:4px;
-            display: flex;
-            flex-direction: column;
+        .response-text {
+            margin: 15px;
+            font-size: 14px;
+            font-family: edgarLizFont;
+            text-align: center;
         }
-        .second-page-header {
-            padding: 1rem 1.25rem;
-            border-bottom: 1px solid #e6e6e6;
-        }
-        .second-page-description {
-            font-size: 12px;
-            color:black;
-            opacity:0.5;
-        }
+
         .first-page-greeting {
             text-align: center;
             color: black;
@@ -163,22 +146,9 @@
             </div>
             <input class="continueButton" type="button" value="Search">
         </div>
-    </div>
-</article>
-<article class="second-page-container" style="display:none">
-    <div class="second-page-header">
-        <p class="second-page-description">
-            Results...
-        </p>
-    </div>
-    <div class="second-page-body">
-        <div class="second-page-wrapper">
+        <div class="response" style="display:none">
+            <p class="response-text"></p>
         </div>
-    </div>
-    <div class="foot-note-container">
-        <p class="foot-note">
-          2019 EE &#174; All rights reserved.
-        </p>
     </div>
 </article>
 <script src="index.js"></script>
