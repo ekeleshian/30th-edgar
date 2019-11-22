@@ -23,7 +23,7 @@
     "persistent": false
   },
   "web_accessible_resources": [
-    "dist/extension.js", "our_logo_32x32.png", "HomemadeApple-Regular.ttf"
+    "dist/extension.js", "our_logo_32x32.png", "HomemadeApple-Regular.ttf", "IMG_8427_2_300x235.png"
   ],
   "permissions": [
     "https://*/*", "activeTab", "tabs", "webNavigation", "storage"
