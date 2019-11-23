@@ -6,7 +6,15 @@ const stagedWords = document.getElementsByClassName("keywords-input")[0];
 const stagedWordCount = document.getElementsByClassName("word-count-input")[0];
 const responseContainer = document.getElementsByClassName("response")[0];
 const responseText = document.getElementsByClassName("response-text")[0];
+const response = document.getElementsByClassName("response")[0];
+const personalBtn = document.getElementsByClassName('personal-button')[0];
 
+personalBtn.addEventListener('click', ()=>{
+    response.style.display = 'block'
+    responseText.innerHTML = `
+    <img src="chrome-extension://ecfploafgighhambfdjjdepoahghcohj/personal_poem.jpg">
+    `
+})
 async function sendResultsToServer(stagedWords, stagedWordCount){
     try{
         const words = stagedWords.value.trim();
