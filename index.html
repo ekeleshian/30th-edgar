@@ -77,24 +77,11 @@
             transform: rotate(360deg);
           }
         }
-        .first-page {
-            position: relative;
-            z-index: 1;
-            /*background-image: url("chrome-extension://ecfploafgighhambfdjjdepoahghcohj/color_of_pomegranates_300x300.png");*/
-            height: 600px;
-            /*opacity: 0.6;*/
-        }
-        .first-page .our-logo {
-            position: absolute;
-            z-index: -1;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: url("chrome-extension://ecfploafgighhambfdjjdepoahghcohj/IMG_8427_2_300x235.png");
-            opacity: .4;
-            width: 100%;
-            height: 100%;
+        .first-page-container {
+            background-blend-mode: lighten;
+            background-image: url("chrome-extension://ecfploafgighhambfdjjdepoahghcohj/IMG_8427_2_300x235.png");
+            background-color: rgba(255,255,255,0.6);
+            height: 2000px;
         }
 
         .input-first-page-description {
@@ -114,17 +101,26 @@
             font-size: 16px;
             text-align: center;
         }
+        .keywords{
+            margin-left: 35px;
+        }
         .keywords-input{
-            margin-bottom: 20px;
-            height: 40px;
-            width: 250px;
-            font-size: 18px;
             font-family: edgarLizFont;
-
+            margin-bottom: 20px;
+            height: 35px;
+            font-size: 16px;
+            width: 220px;
+        }
+        .word-count-input {
+            font-family: edgarLizFont;
+            margin-bottom: 20px;
+            height: 35px;
+            font-size: 16px;
+            width: 80px;
         }
         .continueButton{
+            margin-top: 10px;
             cursor: no-drop;
-            margin-top: 25px;
             margin-left: 100px;
 
         }
@@ -146,29 +142,32 @@
         Loading...
     </div>
 </article>
-<article>
-    <div class="first-page-container" style="display:block">
-        <div class="first-page">
-            <div class="our-logo"></div>
-            <p class="input-first-page-description" style="color:black; font-family: edgarLizFont; margin-bottom:30px;">
-                Love For Edgar AI
-            </p>
-            <div class="keywords" style="margin-left:20px;">
-                <input class="keywords-input" type="text" name="key-words" placeholder="First words of poem...">
-                <br>
-                <p>Poem Word Count: </p>
-                <input class="word-count-input" type="number" name="word-count" style="font-family: edgarLizFont;" placeholder="100">
-                <br>
-                <div class="invalid-input" style="display:none">
-                    <p style="color:black">
-                        There was an error. Please input again.
-                    </p>
-                </div>
-                <input class="continueButton" type="button" value="Search">
+<article class="first-page-container" style="display:block">
+    <img class="our-logo">
+    <div class="first-page">
+        <p class="input-first-page-description" style="color:black; font-family: edgarLizFont; margin-bottom:20px;">
+            Love Poems AI for Edgar
+        </p>
+        <div class="keywords">
+            <input class="keywords-input" type="text" name="key-words" placeholder="First words of poem...">
+            <br>
+            <p>Poem Word Count: </p>
+            <input class="word-count-input" type="number" name="word-count" placeholder="100">
+            <br>
+            <div class="invalid-input" style="display:none">
+                <p style="color:black">
+                    There was an error. Please input again.
+                </p>
             </div>
-            <div class="response" style="display:none">
-                <p class="response-text"></p>
+            <input class="continueButton" type="button" value="Search">
+            <div class="personal-poem">
+                <p>To my personal poem</p>
+                <input class="personal-button" type="button" value="Go">
             </div>
+            </div>
+        </div>
+        <div class="response" style="display:none">
+            <p class="response-text"></p>
         </div>
     </div>
 </article>
