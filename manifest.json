@@ -1,12 +1,12 @@
 {
   "manifest_version": 2,
-  "name": "way2b1_experimental",
-  "short_name": "w_e",
+  "name": "Love Poems AI for Edgar",
+  "short_name": "love-edgar",
   "version": "1.0.0",
   "author": "Elizabeth <ekeleshian@gmail.com>",
-  "description": "TBA",
+  "description": "A custom language model trained over hand picked poems that remind Elizabeth of Edgar.",
   "browser_action": {
-    "default_title": "Thing",
+    "default_title": "Love Poem Generator",
     "default_popup": "index.html"
   },
   "web_accessible_resources": [
